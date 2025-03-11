@@ -5,8 +5,9 @@ import { Icons } from '@/components/icons';
 
 export type NavItem = {
   title: string;
-  href: string;
+  href?: string; // href is now optional because parent items may not have a link
   disabled?: boolean;
+  items?: NavItem[]; // Add support for submenu items
 };
 
 export type MainNavItem = NavItem;

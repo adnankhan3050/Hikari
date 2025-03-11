@@ -1,33 +1,22 @@
 export const footerLinks = {
-  getInTouch: {
-    title: 'Get in touch',
-    description:
-      "We partner with global brands, from startups to industry leaders. Let's discuss.",
-    subscribeTitle: 'Subscribe to our newsletter'
-  },
-  pages: {
-    title: 'Pages',
+  company: {
+    title: 'Company',
     links: [
-      { name: 'Home', href: '#' },
-      { name: 'Home 2', href: '#' },
-      { name: 'About', href: '#' },
-      { name: 'Work', href: '#' },
-      { name: 'Service Details', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Contact', href: '#' }
+      { name: 'Tech Stack', href: '#' },
+      { name: 'Case Study', href: '#' },
+      { name: 'Contact Us', href: '#' }
     ]
   },
-  utilityPages: {
-    title: 'Utility pages',
+  quickLinks: {
+    title: 'Quick Link',
     links: [
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Style Guide', href: '#' },
-      { name: 'Licenses', href: '#' }
+      { name: 'Terms and Conditions', href: '#' },
+      { name: 'Privacy', href: '#' }
     ]
   },
-  location: {
-    title: 'Location',
-    address: 'Chicago HQ Estica Cop.\nMacomb, MI 48042',
-    socialLinksTitle: 'Social links:'
+  contactInfo: {
+    address: '30 N Gould St Suite R\nSheridan, WY 82801\nUnited States',
+    phone: '(214) 487-2900',
+    email: 'info@linkamber.com'
   }
 };

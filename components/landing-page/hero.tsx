@@ -6,13 +6,8 @@ import { buttonVariants } from '@/components/ui/button';
 import { Star } from 'lucide-react';
 import Particles from '@/components/magicui/particles';
 import Ripple from '@/components/magicui/ripple';
-import AnimatedGradientText from '@/components/magicui/animated-shiny-text';
-import { ArrowRightIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
 import AvatarCircles from '@/components/magicui/avatar-circles';
 import { useTheme } from 'next-themes';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
 
 export default function HeroSection() {
   const { theme } = useTheme();
@@ -20,24 +15,8 @@ export default function HeroSection() {
     'https://avatars.githubusercontent.com/u/16860528',
     'https://avatars.githubusercontent.com/u/20110627',
     'https://avatars.githubusercontent.com/u/106103625',
-    'https://avatars.githubusercontent.com/u/59228569',
+    'https://avatars.githubusercontent.com/u/59228569'
   ];
-
-  const quotes = [
-    { text: "That's beautiful bro!", author: "dcodesdev", title: "TypeScript Developer", avatarFallback: "DC", avatarImg: "/images/dcodes.png" },
-    { text: "If you've built this a few months ago, it would have saved me hours :D", author: "SuhailKakar", title: "Developer at joinOnboard", avatarFallback: "SK", avatarImg: "/images/SuhailKakar.jpg" },
-    { text: "So cool, looks really clean. Any plan to open source it? ☺️ Wanna play with it!", author: "SaidAitmbarek", title: "Founder of microlaunch.net", avatarFallback: "SA", avatarImg: "/images/said.jpg" },
-  ];
-
-  const [currentQuote, setCurrentQuote] = useState(0)
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentQuote((prevQuote) => (prevQuote + 1) % quotes.length)
-    }, 5000) // Change quote every 5 seconds
-
-    return () => clearInterval(intervalId)
-  }, [])
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -53,46 +32,54 @@ export default function HeroSection() {
       </div>
       <div className="container mx-auto px-4 py-12 md:py-16 lg:py-32">
         <div className="relative z-10 flex max-w-[64rem] flex-col items-center gap-4 text-center mx-auto">
-          <Link href={siteConfig.links.twitter} className="w-fit">
-            <div
-              className={cn(
-                'group rounded-full border border-black/5 bg-neutral-100 text-base text-secondary transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800',
-              )}
-            >
-              <AnimatedGradientText className="inline-flex items-center justify-center px-4 py-2 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
-                <span
-                  className={cn(
-                    `inline animate-gradient bg-gradient-to-r from-[#b76a24] via-[#6a24b7] to-[#b76a24] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
-                  )}
-                >
-                  Follow the progress on X
-                </span>                
-                <ArrowRightIcon className="ml-2 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-              </AnimatedGradientText>
-            </div>
-          </Link>
+          {/* First Line */}
+          <div className="max-w-[42rem] text-base sm:text-lg text-foreground">
+            For Sales Teams Doing Outbound at Scale
+          </div>
 
-          <h1 className="font-heading tracking-tight   font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
-            A Complete & Open Source Next.js 14 SaaS Template Using Supabase
+          {/* Heading */}
+          <h1 className="font-heading tracking-tight font-bold text-xl sm:text-3xl md:text-4xl lg:text-5xl">
+            Close More Deals with{' '}
+            <span style={{ color: '#FF6400' }}>Hyper-Targeted</span>
+            <br />
+            <span style={{ color: '#FF6400' }}>Prospect Lists</span>
           </h1>
-          <div className="max-w-[42rem] font-bold tracking-tight text-primary sm:text-xl sm:leading-8 rounded-full p-2">
-            I&apos;m building a modern web app with Next.js 14 & Supabase and open
-            sourcing everything. Follow along as we figure this out together.
+
+          {/* Bold and Underlined Text */}
+          <div className="max-w-[42rem] font-bold text-base sm:text-lg text-foreground">
+            <span className="underline">Using ZoomInfo?</span> We find 56% more
+            mobile numbers for a fraction of the cost.
           </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/login" className={cn(buttonVariants({ size: 'xl' }), 'rounded-full border-2 border-primary dark:border-white text-bold text-white')}>
-              Get Started
-            </Link>
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(buttonVariants({ variant: 'outline', size: 'xl' }), 'rounded-full border-2 border-primary dark:border-white text-semibold')}
+
+          {/* New Line with Background Color (Strictly Wrapped) */}
+          <div className="mt-6">
+            <span
+              className="text-sm sm:text-base"
+              style={{
+                backgroundColor: 'rgba(255, 100, 0, 0.5)', // Background color
+                padding: '2px 4px', // Minimal padding to avoid extra space
+                lineHeight: '1.5' // Adjust line height to match text size
+              }}
             >
-              GitHub <GitHubLogoIcon className="ml-2" />
+              Want to run a free test on a list against your current provider?
+            </span>
+          </div>
+
+          {/* Centralized "Let's Talk" Button */}
+          <div className="flex justify-center mt-6">
+            <Link
+              href="/schedule-a-call"
+              className={cn(
+                buttonVariants({ variant: 'outline', size: 'sm' }),
+                'rounded-full p-2 md:p-5 text-xs md:text-sm hidden md:inline-flex hover:!bg-[#333333] hover:!text-white transition-colors duration-200'
+              )}
+              style={{ backgroundColor: '#FF6400', color: '#FFFFFF' }}
+            >
+              Let's Talk
             </Link>
           </div>
+
+          {/* Avatar Circles and Star Rating */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-2 w-full">
             <AvatarCircles numPeople={155} avatarUrls={avatarUrls} />
             <div className="flex flex-col mt-2">
@@ -104,9 +91,7 @@ export default function HeroSection() {
                   />
                 ))}
               </div>
-              <span className="text-xs font-semibold">
-                Join 160+ developers
-              </span>
+              <span className="text-xs font-semibold">Join 160+ Users</span>
             </div>
           </div>
         </div>
